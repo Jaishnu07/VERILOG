@@ -3,7 +3,6 @@ module full_subtractor_tb;
     reg a, b, bin;
     wire diff, borrow;
 
-    // DUT Instantiation
     full_subtractor uut (
         .a(a),
         .b(b),
