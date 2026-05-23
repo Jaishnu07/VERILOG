@@ -3,7 +3,6 @@ module half_subtractor_tb;
     reg a, b;
     wire diff, borrow;
 
-    // DUT Instantiation
     half_subtractor uut (
         .a(a),
         .b(b),
