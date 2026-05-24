@@ -8,14 +8,12 @@ module ring_counter_tb;
         .q(q)
     );
 
-    // Clock Generation
     initial
     begin
         clk = 0;
         forever #5 clk = ~clk;
     end
 
-    // Monitor Output
     initial
     begin
         $monitor("Time=%0t q=%b", $time, q);
