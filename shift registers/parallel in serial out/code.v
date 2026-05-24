@@ -7,6 +7,12 @@ module piso(
 
 reg [3:0] shift_reg;
 
+initial
+begin
+    shift_reg = 4'b0000;
+    serial_out = 0;
+end
+
 always @(posedge clk)
 begin
 
