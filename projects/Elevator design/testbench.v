@@ -1,26 +1,35 @@
-module elevator(
-    input clk,
-    input [1:0] request,
-    output reg [1:0] floor
-);
+module elevator_tb;
 
-initial
-begin
-    floor = 2'b00;   
-end
+    reg clk;
+    reg [1:0] request;
+    wire [1:0] floor;
 
-always @(posedge clk)
-begin
+    elevator uut(
+        .clk(clk),
+        .request(request),
+        .floor(floor)
+    );
 
-    if(request > floor)
-        floor <= floor + 1;
+    initial
+    begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
 
-    else if(request < floor)
-        floor <= floor - 1;
+    initial
+    begin
 
-    else
-        floor <= floor;
+        request = 2'b10;   
+        #40;
 
-end
+        request = 2'b01;   
+        #40;
+
+        request = 2'b11;  
+        #40;
+
+        $finish;
+
+    end
 
 endmodule
